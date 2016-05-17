@@ -1,0 +1,64 @@
+Shiny M&Ms
+========================================================
+author: Tom Tegtmeyer
+date: `r date()`
+
+Introduction
+========================================================
+
+A common introductory statistics class experiment involves using the color distribution of Milk Chocolate M&Ms candies to demonstrate the $\chi^2$ goodness-of-fit test. With this Shiny app, the user just inputs the M&M color frequencies and selects a level of significance for the goodness-of-fit test.
+
+Using the App
+========================================================
+
+The user inputs the following:
+
+- The frequency for each color.
+- The level of significance for the $\chi^2$ goodness-of-fit test.
+
+The app produces the following:
+
+- A table with the observed and expected frequencies for each color, and each color's contribution to the total $\chi^2$ value.
+- The $\chi^2$ value for the data.
+- The P-value for the data, using 5 degrees of freedom.
+- A conclusion to the goodness-of-fit test.
+- A bar chart comparing the observed and expected values for each color.
+
+Sample output
+========================================================
+
+```{r, echo=FALSE, results="asis"}
+library(xtable)
+mcolors<-c("Blue","Brown","Green","Orange","Red","Yellow")
+cp<-c(0.24,0.13,0.16,0.20,0.13,0.14)
+ofreq<-c(20,17,20,14,19,11)
+ofreq<-as.integer(ofreq)
+msum<-sum(ofreq)
+mexp<-msum*cp
+mchisq<-(ofreq-mexp)^2/mexp
+df<-data.frame(color=mcolors,observed=ofreq,expected=mexp,chisq=mchisq)
+print(xtable(df),type="html")
+```
+
+Total M&Ms = `r msum`
+
+Chi-squared = `r round(sum(mchisq),3)`
+
+P-value = `r round(pchisq(sum(mchisq),df=5,lower.tail=FALSE),3)`
+
+*There is not sufficient evidence to conclude that the color distribution does not match the assumed distribution.*
+
+
+Sample output plot
+========================================================
+```{r,echo=FALSE}
+library(reshape2); library(ggplot2)
+dfm<-melt(data.frame(color=mcolors,observed=ofreq,
+                                    expected=mexp,id.vars="color"))
+g<-ggplot(dfm,aes(x=color,value,fill=variable))+
+                        geom_bar(stat="identity",position="dodge")+
+                                labs(title="Observed and expected color frequencies")+
+                                labs(x="Color")+
+                                labs(y="Frequency")
+print(g)
+```
