@@ -759,7 +759,7 @@ hljs.initHighlightingOnLoad();
   <div class="slides">
 
 <section data-state="section" data-transition="linear" data-transition-speed="default">
-<h1>Shiny M&amp;Ms</h1><p>Tom Tegtmeyer<br/>Tue May 17 12:40:03 2016</p>
+<h1>Shiny M&amp;Ms</h1><p>Tom Tegtmeyer<br/>Wed May 18 12:02:37 2016</p>
 
 <div class="slideContent" >
 
@@ -769,7 +769,9 @@ hljs.initHighlightingOnLoad();
 <section data-transition="linear" data-transition-speed="default">
 <h3>Introduction</h3>
 <div class="slideContent" >
-<p>A common introductory statistics class experiment involves using the color distribution of Milk Chocolate M&amp;Ms candies to demonstrate the \( \chi^2 \) goodness-of-fit test. With this Shiny app, the user just inputs the M&amp;M color frequencies and selects a level of significance for the goodness-of-fit test.</p>
+<p>A common introductory statistics class experiment involves using the color distribution of Milk Chocolate M&amp;Ms candies to demonstrate the \( \chi^2 \) goodness-of-fit test. </p>
+
+<p>With this Shiny app, the user just inputs the M&amp;M color sample frequencies and selects a level of significance for the goodness-of-fit test. The app will perform the necessary calculations and state the conclusion of the test. (A distribution of 24% blue, 13% brown, 16% green, 20% orange, 13% red, and 14% yellow M&amp;Ms is assumed.)</p>
 
 </div>
 
@@ -800,9 +802,9 @@ hljs.initHighlightingOnLoad();
 <section data-transition="linear" data-transition-speed="default">
 <h3>Sample output</h3>
 <div class="slideContent" >
-<!-- html table generated in R 3.2.4 by xtable 1.8-2 package -->
+<!-- html table generated in R 3.3.0 by xtable 1.8-2 package -->
 
-<!-- Tue May 17 12:40:03 2016 -->
+<!-- Wed May 18 12:02:37 2016 -->
 
 <table border=1>
 <tr> <th>  </th> <th> color </th> <th> observed </th> <th> expected </th> <th> chisq </th>  </tr>
@@ -827,8 +829,10 @@ hljs.initHighlightingOnLoad();
 </section>
 <section data-transition="linear" data-transition-speed="default">
 <h3>Sample output plot</h3>
-<div class="mediaOnly slideContent" >
+<div class="mediaInline slideContent" >
 <p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-2"/></p>
+
+<p>For the complete collection of files related to this project, please visit <a href="https://github.com/ttegt/DataProducts/tree/gh-pages">https://github.com/ttegt/DataProducts/tree/gh-pages</a> .</p>
 
 </div>
 
