@@ -1,9 +1,8 @@
 name: MMs-app
 account: ttegt
 server: shinyapps.io
-appId: 102442
-bundleId: 453482
+bundleId: 455517
 url: https://ttegt.shinyapps.io/MMs-app/
-when: 1463433473.51001
+when: 1463582391.9888
 asMultiple: FALSE
 asStatic: FALSE

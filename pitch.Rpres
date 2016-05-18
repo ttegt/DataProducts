@@ -6,7 +6,9 @@ date: `r date()`
 Introduction
 ========================================================
 
-A common introductory statistics class experiment involves using the color distribution of Milk Chocolate M&Ms candies to demonstrate the $\chi^2$ goodness-of-fit test. With this Shiny app, the user just inputs the M&M color frequencies and selects a level of significance for the goodness-of-fit test.
+A common introductory statistics class experiment involves using the color distribution of Milk Chocolate M&Ms candies to demonstrate the $\chi^2$ goodness-of-fit test. 
+
+With this Shiny app, the user just inputs the M&M color sample frequencies and selects a level of significance for the goodness-of-fit test. The app will perform the necessary calculations and state the conclusion of the test. (A distribution of 24% blue, 13% brown, 16% green, 20% orange, 13% red, and 14% yellow M&Ms is assumed.)
 
 Using the App
 ========================================================
@@ -62,3 +64,5 @@ g<-ggplot(dfm,aes(x=color,value,fill=variable))+
                                 labs(y="Frequency")
 print(g)
 ```
+
+For the complete collection of files related to this project, please visit https://github.com/ttegt/DataProducts/tree/gh-pages .

@@ -1,12 +1,14 @@
 Shiny M&Ms
 ========================================================
 author: Tom Tegtmeyer
-date: Tue May 17 12:40:03 2016
+date: Wed May 18 12:02:37 2016
 
 Introduction
 ========================================================
 
-A common introductory statistics class experiment involves using the color distribution of Milk Chocolate M&Ms candies to demonstrate the $\chi^2$ goodness-of-fit test. With this Shiny app, the user just inputs the M&M color frequencies and selects a level of significance for the goodness-of-fit test.
+A common introductory statistics class experiment involves using the color distribution of Milk Chocolate M&Ms candies to demonstrate the $\chi^2$ goodness-of-fit test. 
+
+With this Shiny app, the user just inputs the M&M color sample frequencies and selects a level of significance for the goodness-of-fit test. The app will perform the necessary calculations and state the conclusion of the test. (A distribution of 24% blue, 13% brown, 16% green, 20% orange, 13% red, and 14% yellow M&Ms is assumed.)
 
 Using the App
 ========================================================
@@ -27,8 +29,8 @@ The app produces the following:
 Sample output
 ========================================================
 
-<!-- html table generated in R 3.2.4 by xtable 1.8-2 package -->
-<!-- Tue May 17 12:40:03 2016 -->
+<!-- html table generated in R 3.3.0 by xtable 1.8-2 package -->
+<!-- Wed May 18 12:02:37 2016 -->
 <table border=1>
 <tr> <th>  </th> <th> color </th> <th> observed </th> <th> expected </th> <th> chisq </th>  </tr>
   <tr> <td align="right"> 1 </td> <td> Blue </td> <td align="right">  20 </td> <td align="right"> 24.24 </td> <td align="right"> 0.74 </td> </tr>
@@ -50,4 +52,6 @@ P-value = 0.155
 
 Sample output plot
 ========================================================
-![plot of chunk unnamed-chunk-2](Pitch-figure/unnamed-chunk-2-1.png)
+![plot of chunk unnamed-chunk-2](pitch-figure/unnamed-chunk-2-1.png)
+
+For the complete collection of files related to this project, please visit https://github.com/ttegt/DataProducts/tree/gh-pages .

@@ -1,32 +1,41 @@
 library(shiny)
 library(reshape2); library(ggplot2)
-mcolors<-c("Blue","Brown","Green","Orange","Red","Yellow")
-cp<-c(0.24,0.13,0.16,0.20,0.13,0.14)
+mcolors<-c("Blue","Brown","Green","Orange","Red","Yellow") #color names
+cp<-c(0.24,0.13,0.16,0.20,0.13,0.14) #theoretical proportions
+
+#hypothesis testing function, compares P-value to level of sig. alpha
 testfunction<-function(p,alpha){
         if(p<alpha) "is"
         else "is not"
 }
+
 shinyServer(
         function(input, output) {
-                
+                # observed frequencies
                 colorvec<-reactive({
                         c(input$blue,input$brown,input$green,
                                   input$orange,input$red,input$yellow)
-                })
+                }) 
+                # expected frequencies
                 expected<-reactive({
                         sum(colorvec())*cp
-                })
+                }) 
+                # chi-sq value
                 chisq<-reactive({
                         sum((colorvec()-expected())^2/expected())
-                })
+                }) 
+                
+                # data frame with colors,obs,exp,chi-sq
                 dfr<-reactive(data.frame(color=mcolors,
                                          observed=colorvec(),
                                          expected=expected(),
                                          chisq=(colorvec()-expected())^2/expected()))
+                # melted data frame for ggplot 
                 dfm<-reactive({
                         melt(data.frame(color=mcolors,observed=colorvec(),
                                     expected=expected()),id.vars="color")
                 })
+                
                 pvalue<-reactive({pchisq(chisq(),df=5,lower.tail=FALSE)})
                 output$Table<-renderTable(dfr())
                 output$total<-renderText({paste("Total M&Ms =",sum(colorvec()))})

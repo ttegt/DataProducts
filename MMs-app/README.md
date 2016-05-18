@@ -14,7 +14,7 @@ Yellow: 14%
 
 The user can input the following.
 
-1. Frequencies for each color
+1. Frequencies for each color.
 2. The level of significance for the test.
 
 The app produces the following output.
